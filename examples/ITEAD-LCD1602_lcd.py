@@ -3,7 +3,8 @@
 # Example using an "ITEAD RPi LCD1602 v2.0" character LCD
 #
 # Based on Adafruit_Python_CharLCD/examples/char_lcd.py example
-#   v1.0    20/10/15
+# backlight fade added  20/10/15
+#   v1.1    20/10/15
 #
 #   David Meiklejohn
 #   Gooligum Electronics
@@ -64,15 +65,21 @@ for i in range(lcd_columns-len(message)):
 	time.sleep(0.5)
 	lcd.move_left()
 
-# Demo turning backlight off and on.
+# Demo fading backlight off and on.
 lcd.clear()
-lcd.message('Flash backlight\nin 5 seconds...')
-time.sleep(5.0)
-# Turn backlight off.
+lcd.message('Fade backlight\noff then on...')
+time.sleep(1.0)
+# Fade backlight off.
+for p in range(100, 0, -2):
+    lcd.set_backlight(p/100.0)
+    time.sleep(0.04)     # 50 steps x 0.04 sec = 2 sec
 lcd.set_backlight(0)
-time.sleep(2.0)
+time.sleep(0.5)
+# Fade backlight on.
+for p in range(0, 100, 2):
+    lcd.set_backlight(p/100.0)
+    time.sleep(0.04)     # 50 steps x 0.04 sec = 2 sec
+lcd.set_backlight(1)
 # Change message.
 lcd.clear()
 lcd.message('Goodbye!')
-# Turn backlight on.
-lcd.set_backlight(1)
