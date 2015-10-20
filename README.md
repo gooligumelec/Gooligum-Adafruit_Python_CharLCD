@@ -1,7 +1,7 @@
 Gooligum-Adafruit_Python_CharLCD
 ======================
 
-Python library for using HD44780-compatible character LCDs sold by Gooligum Electronics,
+Python library for usingcharacter LCDs (HD44780-compatible) sold by Gooligum Electronics,
 including the ITEAD Studios "RPi LCD1602 Add-on v2.0"
 with examples added by David Meiklejohn (Gooligum Electronics)
 
